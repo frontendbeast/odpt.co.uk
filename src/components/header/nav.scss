@@ -1,0 +1,76 @@
+@import "includes";
+
+.c-nav {
+  align-items: center;
+  display: none;
+
+  @include respond-max(nav-full) {
+    background-color: #222;
+    background: linear-gradient(to bottom, #111 0,#111 4rem,#000 4rem,#000 100%);
+    bottom: 0;
+    left: 0;
+    overflow: hidden;
+    padding: get-size(gutter);
+    position: fixed;
+    right: 0;
+    top: 0;
+  }
+  
+  @include respond-min(nav-full) {
+    display: flex;
+  }
+}
+  .c-nav__block {
+    flex: 1;
+  }
+
+  .c-nav__block:first-child {
+    flex-grow: 0;
+    flex-shrink: 1;
+
+    @include respond-min(nav-full) {
+      order: 2;
+    }
+  }
+
+  .c-nav__block:nth-child(2) {
+    flex-grow: 1;
+    order: 1;
+  }
+
+  .c-nav__block:last-child {
+    flex-grow: 1;
+    justify-content: flex-end;
+    order: 3;
+  }
+
+  .c-nav__item {
+    @include respond-max(nav-full) {
+      flex-basis: 100%;
+      margin-top: get-size(gutter);
+    }
+
+    @include respond-min(nav-full) {
+      .c-nav__block & + & {
+        margin-left: get-size(gutter);
+      }
+    }
+  }
+
+  .c-nav__list {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    @include respond-max(nav-full) {
+      flex-basis: 100%;
+      flex-wrap: wrap;
+      margin-top: get-size(gutter);
+      text-align: center;
+
+      &:first-of-type {
+        margin-top: 4rem;
+      }
+    }
+  }

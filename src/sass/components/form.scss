@@ -1,0 +1,34 @@
+@import "includes";
+
+.c-form {
+  margin-top: get-size(font-h2) * get-size(font-line-height-heading) + get-size(gutter);
+}
+
+  .c-form__button-group {
+    margin-top: get-size(gutter);
+  }
+
+  .c-form__error {
+    color: get-color(form-field-error);
+  }
+
+  .c-form__field {
+    width: 50%;
+  }
+
+  .c-form__field--full {
+    width: 100%;
+  }
+
+  .c-form__field--trap {
+    display: none;
+  }
+
+  .c-form__field-group {
+    display: grid;
+
+    @include respond-min(two-column) {
+      grid-column-gap: get-size(gutter);
+      grid-template-columns: 1fr 1fr
+    }
+  }

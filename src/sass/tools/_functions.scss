@@ -1,0 +1,26 @@
+$d-error: 100px;
+$d-px-in-em: 16;
+
+// Convert pixel value to em
+@function px-rem($px-value) {
+	$rem: $px-value / ($d-px-in-em * 1px);
+
+	@return $rem * 1rem;
+}
+
+// Return a size from the size use list
+@function get-size($name) {
+	@if not map-has-key($d-uses, $name) {
+		@warn "The size `#{$name}` is not defined.";
+		@return $d-error;
+	}
+
+	@return map-get($d-uses, $name);
+}
+
+// Convert em value to pixel
+@function em-px($rem-value) {
+	$px: ($rem-value / 1rem) * $d-px-in-em;
+
+	@return $px * 1px;
+}

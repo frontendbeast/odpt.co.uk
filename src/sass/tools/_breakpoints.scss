@@ -1,0 +1,53 @@
+$b-error: 10000px;
+
+// Add content for each breakpoint
+@mixin breakpoints($breakpoints) {
+	@content;
+
+	@each $breakpoint in $breakpoints {
+
+		@include respond-min($breakpoint) {
+			&\@#{$breakpoint} {
+				@content;
+			}
+		}
+	}
+}
+
+// Get a breakpoint from the defined map, or return the value as em
+@function get-breakpoint($breakpoint) {
+	@if (type-of($breakpoint) == number) {
+		@return px-rem($breakpoint);
+	} @else if(map-has-key($b-uses, $breakpoint)) {
+		$breakpoint: map-get($b-uses, $breakpoint);
+		@return px-rem($breakpoint);
+	} @else {
+		@warn "The breakpoint `#{$breakpoint}` is not defined.";
+		@return $b-error;
+	}
+}
+
+@mixin respond-max($breakpoint, $dimension: width) {
+	$dimension-max: get-breakpoint($breakpoint) - px-rem(1px);
+
+	@media screen and (max-#{$dimension}: $dimension-max) {
+		@content;
+	}
+}
+
+@mixin respond-min($breakpoint, $dimension: width) {
+	$dimension-min: get-breakpoint($breakpoint);
+
+	@media screen and (min-#{$dimension}: $dimension-min) {
+		@content;
+	}
+}
+
+@mixin respond-min-max($breakpoint-min, $breakpoint-max, $dimension: width) {
+	$dimension-min: get-breakpoint($breakpoint-min);
+	$dimension-max: get-breakpoint($breakpoint-max) - px-rem(1px);
+
+	@media screen and (min-#{$dimension}: $dimension-min) and (max-#{$dimension}: $dimension-max) {
+		@content;
+	}
+}

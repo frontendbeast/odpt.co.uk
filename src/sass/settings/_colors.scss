@@ -1,0 +1,37 @@
+// sass-lint:disable no-color-keywords indentation
+
+$c-palette: (
+  primary: (
+    black:         #000,
+    grey-darkest:  #111,
+    grey-lighter:  #999,
+    grey-lightest: #eee,
+    red:           #f00,
+  ),
+  social: (
+    facebook:      #3b5998,
+    twitter:       #1da1f2,
+  )
+);
+
+$c-tints: (
+  primary: ()
+);
+
+$c-uses: (
+  body-bg:                 get-color-direct(primary, black),
+  body-copy:               get-color-direct(primary, grey-lightest),
+
+  button-border:           rgba(get-color-direct(primary, grey-lightest), 0.25),
+
+  form-field:              get-color-direct(primary, grey-lightest),
+  form-field-bg:           get-color-direct(primary, grey-darkest),
+  form-field-border:       rgba(get-color-direct(primary, grey-lightest), 0.25),
+  form-field-border-focus: get-color-direct(primary, grey-lightest),
+  form-field-error:        rgba(get-color-direct(primary, red), 0.80),
+  form-field-label:        get-color-direct(primary, grey-lighter),
+
+  header-bg:               rgba(get-color-direct(primary, black), 0.85),
+
+  nav-copy:                get-color-direct(primary, grey-lightest),
+);

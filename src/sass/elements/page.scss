@@ -1,0 +1,16 @@
+body {
+  background-color: get-color(body-bg);
+  color: get-color(body-copy);
+  font-family: get-font(body);
+  font-size: get-size(font-base);
+  line-height: 1.5;
+  margin: 0;
+}
+
+svg {
+  display: block;
+
+  path {
+    fill: currentColor;
+  }
+}

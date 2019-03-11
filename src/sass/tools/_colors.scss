@@ -1,0 +1,50 @@
+// Used when no matching colour is found
+$c-error: #f00;
+
+// Return a color from the colour use list
+@function get-color($name) {
+	@if not map-has-key($c-uses, $name) {
+		@warn "The color `#{$name}` is not defined.";
+		@return $c-error;
+	}
+
+	@return map-get($c-uses, $name);
+}
+
+// Get a colour from the defined map, including tints if available
+// Define a colour in the $c-use map rather than using this function directly
+@function get-color-direct($level, $name, $tint: null, $direction: lighten) {
+	@if not map-has-key($c-palette, $level) {
+		@warn "The color palette `#{$level}` is not defined.";
+		@return $c-error;
+	}
+
+	$palette: map-get($c-palette, $level);
+
+	@if not map-has-key($palette, $name) {
+		@warn "The color `#{$name}` is not defined in palette `#{$level}`.";
+		@return $c-error;
+	}
+
+	$color: map-get($palette, $name);
+
+	@if $tint {
+		@if not map-has-key($c-tints, $level) {
+			@warn "There are no tints defined for palette `#{$level}`.";
+			@return $color;
+		}
+
+		$palette-tints: map-get($c-tints, $level);
+
+		@if index(map-get($palette-tints, $name), $tint) == null {
+			@warn "A `#{$tint}` tint of color `#{$name}` in palette `#{$level}` is not allowed. ";
+			@return $color;
+		}
+
+        $mix: if($direction == lighten, #fff, #000);
+
+		$color: mix($color, $mix, $tint);
+	}
+
+	@return $color;
+}

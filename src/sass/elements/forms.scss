@@ -1,0 +1,44 @@
+button, 
+input,
+textarea {
+  background-color: get-color(form-field-bg);
+  border: 1px solid get-color(form-field-border);
+  box-sizing: border-box;
+  color: get-color(form-field);
+  font-size: get-size(font-base);
+  font-family: get-font(form-field);
+  padding: get-size(gutter)/2 get-size(gutter)*0.75;
+  transition: border-color 0.25s;
+
+  &:focus {
+    border-color: get-color(form-field-border-focus);
+    outline: none;
+  }
+}
+
+input, 
+textarea {
+  width: 100%;
+
+  .has-error & {
+    border-color: get-color(form-field-error);
+  }
+}
+
+label {
+  color: get-color(form-field-label);
+  display: block;
+  margin: get-size(gutter) 0 get-size(gutter)/2;
+  padding: 0 get-size(gutter)*0.75;
+  transition: color 0.25s;
+
+  .has-error & {
+    color: get-color(form-field-error);
+  }
+}
+
+textarea {
+  display: block;
+  height: (get-size(font-base)*1.4) * 5 + get-size(gutter);
+  line-height: 1.4;
+}

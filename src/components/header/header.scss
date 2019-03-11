@@ -1,0 +1,67 @@
+@import "includes";
+
+.c-header {
+  background-color: get-color(header-bg);
+  box-sizing: border-box;
+  font-family: get-font(heading);
+  font-weight: 700;
+  left: 0;
+  padding: get-size(gutter);
+  position: fixed;
+  text-transform: uppercase;
+  top: 0;
+  width: 100%;
+  z-index: 2;
+}
+
+  .c-header__anchor {
+    left: 0;
+    position: fixed;
+    top: 0;
+
+    @include respond-max(nav-full) {
+      &:target + .c-nav {
+        display: flex;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        align-content: flex-start;
+      } 
+    }
+  }
+
+  .c-header__link {
+    color: get-color(nav-copy);
+    text-decoration: none;
+  }
+
+  .c-header__logo {
+    height: get-size(logo-height-compact);
+
+    @include respond-min(nav-full) {
+      height: get-size(logo-height);
+    }
+  }
+
+  .c-header__nav-close {
+    align-self: center;
+    margin-left: auto;
+
+    @include respond-min(nav-full) {
+      display: none;
+    }
+  }
+
+  .c-header__nav-trigger {
+    color: get-color(nav-copy);
+    text-decoration: none;
+  }
+
+  .c-header__nav-compact {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+
+    @include respond-min(nav-full) {
+      display: none;
+    }
+  }

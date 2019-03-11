@@ -1,0 +1,17 @@
+@import "includes";
+
+.c-button {
+  border: 1px solid get-color(button-border);
+  display: inline-block;
+  font-family: get-font(button);
+  font-weight: bold;
+  text-decoration: none;
+  text-transform: uppercase;
+  padding: get-size(gutter) get-size(gutter) get-size(gutter) * 0.75 get-size(gutter);
+
+  @include respond-min(nav-full) {
+    .c-nav__item & {
+      display: inline;
+    }
+  }
+}

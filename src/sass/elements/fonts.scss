@@ -1,0 +1,37 @@
+@font-face {
+  font-family: 'Museo Sans';
+  src: url('../fonts/museo-sans-500.woff2') format('woff2'),
+       url('../fonts/museo-sans-500.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Museo Sans';
+  src: url('../fonts/museo-sans-700.woff2') format('woff2'),
+       url('../fonts/museo-sans-700.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Museo Sans';
+  src: url('../fonts/museo-sans-900.woff2') format('woff2'),
+       url('../fonts/museo-sans-900.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('../fonts/roboto-light.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('../fonts/roboto-medium.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}

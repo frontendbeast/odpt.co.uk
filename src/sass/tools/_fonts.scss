@@ -1,0 +1,12 @@
+// Used when no matching colour is found
+$f-error: 'Comic Sans MS';
+
+// Return a color from the colour use list
+@function get-font($name) {
+	@if not map-has-key($f-families, $name) {
+		@warn "The font `#{$name}` is not defined.";
+		@return $f-error;
+	}
+
+	@return map-get($f-families, $name);
+}
