@@ -3,6 +3,7 @@ input,
 textarea {
   background-color: get-color(form-field-bg);
   border: 1px solid get-color(form-field-border);
+  border-radius: 0;
   box-sizing: border-box;
   color: get-color(form-field);
   font-size: get-size(font-base);
