@@ -214,7 +214,7 @@ class IndexPage extends React.Component {
               </div>
               <div className="c-form__button-group">
                 { this.state.errors.length > 0 && <div className="c-form__error"><p>There { this.state.errors.length > 1 ? "were errors" : "was an error" } submitting the form:</p><ul>{ this.state.errors.map((error, i) => (<li key={`error-${i}`}>{ error.message }</li>)) }</ul></div> }
-                { this.state.success && <div className="c-form__success"><p>Thanks for getting in touch, Oli will get back to you soon.</p></div> }
+                { this.state.success && <p>Thanks for getting in touch, Oli will get back to you soon.</p> }
                 <button type="submit" className="c-button">Send</button>
               </div>
             </form>
