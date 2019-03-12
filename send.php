@@ -1,7 +1,7 @@
 <?php 
 header("Access-Control-Allow-Origin: *");
 
-require 'vendor/autoload.php';
+require '../vendor/autoload.php';
 
 $errors = array();
 $regex = array(
