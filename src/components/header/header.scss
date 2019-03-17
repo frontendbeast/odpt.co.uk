@@ -6,12 +6,16 @@
   font-family: get-font(heading);
   font-weight: 700;
   left: 0;
-  padding: get-size(gutter);
+  padding: get-size(gutter-compact);
   position: fixed;
   text-transform: uppercase;
   top: 0;
   width: 100%;
   z-index: 2;
+
+  @include respond-min(two-column) {
+    padding: get-size(gutter-compact) get-size(gutter);
+  }
 }
 
   .c-header__anchor {

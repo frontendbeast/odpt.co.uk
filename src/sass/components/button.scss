@@ -7,7 +7,7 @@
   font-weight: bold;
   text-decoration: none;
   text-transform: uppercase;
-  padding: get-size(gutter) get-size(gutter) get-size(gutter) * 0.75 get-size(gutter);
+  padding: get-size(gutter-compact) get-size(gutter-compact) get-size(gutter-compact) * 0.75 get-size(gutter-compact);
 
   @include respond-min(nav-full) {
     .c-nav__item & {

@@ -25,13 +25,13 @@ const Header = ({ siteTitle }) => (
         <li className="c-nav__item"><Link className="c-header__link" to="/personal-training">Personal training</Link></li>
         <li className="c-nav__item"><Link className="c-header__link" to="/online-coaching">Online coaching</Link></li>
         <li className="c-nav__item"><Link className="c-header__link" to="/facilites">Facilities</Link></li>
-      </ul>
-      <ul className="c-nav__block c-nav__list">
-        <li className="c-nav__item"><Link className="c-header__link" to="/about-oli">About Oli</Link></li>
-        <li className="c-nav__item"><Link className="c-header__link" to="/testimonials">Testimonials</Link></li>
-        <li className="c-nav__item"><Link className="c-header__link" to="/blog">Blog</Link></li>
-        <li className="c-nav__item"><Link className="c-header__link c-button" to="/get-in-touch">Get in touch</Link></li>
       </ul> */}
+      <ul className="c-nav__block c-nav__list">
+        {/* <li className="c-nav__item"><Link className="c-header__link" to="/about-oli">About Oli</Link></li>
+        <li className="c-nav__item"><Link className="c-header__link" to="/testimonials">Testimonials</Link></li>
+        <li className="c-nav__item"><Link className="c-header__link" to="/blog">Blog</Link></li> */}
+        <li className="c-nav__item"><Link className="c-header__link c-button" to="/get-in-touch">Get in touch</Link></li>
+      </ul>
     </nav>
   </header>
 )

@@ -1,11 +1,16 @@
 @import "includes";
 
 .c-form {
-  margin-top: get-size(font-h2) * get-size(font-line-height-heading) + get-size(gutter);
+  padding-top: get-size(logo-height-compact) + (get-size(gutter-compact) * 2);
+
+  @include respond-min(two-column) {
+    margin-top: get-size(font-h2) * get-size(font-line-height-heading) - 0.05rem;
+    padding-top: 0;
+  }
 }
 
   .c-form__button-group {
-    margin-top: get-size(gutter);
+    margin-top: get-size(gutter-compact);
   }
 
   .c-form__error {
@@ -28,7 +33,7 @@
     display: grid;
 
     @include respond-min(two-column) {
-      grid-column-gap: get-size(gutter);
+      grid-column-gap: get-size(gutter-compact);
       grid-template-columns: 1fr 1fr
     }
   }

@@ -6,7 +6,7 @@ h1, h2, h3, h4 {
   font-family: get-font(heading);
   text-transform: uppercase;
   line-height: get-size(font-line-height-heading);
-  margin: get-size(gutter) 0;
+  margin: get-size(gutter-compact) 0;
 }
 
 p {

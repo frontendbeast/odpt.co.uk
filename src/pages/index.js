@@ -167,7 +167,7 @@ class IndexPage extends React.Component {
     return (
       <Layout>
         <SEO title="ODPT" keywords={[`gatsby`, `application`, `react`]} />
-        <div className="c-section c-section--align-bottom c-section--bg">
+        <div className="c-section c-section--align-bottom c-section--bg o-grid o-grid--two-column">
           <div className="c-section__content">
             <LogoText />
             <p>Improve your Health and Wellbeing</p>
@@ -175,16 +175,63 @@ class IndexPage extends React.Component {
           </div>
           <div className="c-section__fixed" style={{ backgroundImage: `url(${headshot})` }}></div>
         </div>
-        <div className="c-section c-section--align-bottom c-section--bg" style={{ backgroundImage: `url(${coaching})` }}>
+        <div className="c-section c-section--align-bottom c-section--bg o-grid o-grid--two-column" style={{ backgroundImage: `url(${coaching})` }}>
           <div className="c-section__content">
-            <h2>Train to Meet your Goals</h2>
+            <h2 className="c-section__heading">Train to Meet your Goals</h2>
             <p>Personalised and individual training and diet programs to meet your goals. Full and regular biometric analysis. Constant support to promote positive lifestyle changes.</p>
             {/* <Link className="c-button" to="/personal-training">Personal training</Link> */}
           </div>
         </div>
-        <div className="c-section u-bg--grey-darkest">
+        <div className="c-section o-grid o-grid--two-column o-grid--two-row u-bg--grey-darker">
           <div className="c-section__content">
-            <h2>Get in touch</h2>
+            <h2 className="c-section__heading">Personal Training</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. </p>
+          </div>
+          <div className="c-section__content o-grid__item--full">
+            <div className="o-grid o-grid--three-column">
+              <div className="o-grid__item c-pricing">
+                <h3 className="c-pricing__header">Bronze package</h3>
+                <ul className="c-pricing__list">
+                  <li className="c-pricing__info c-pricing__info--highlight">2 sessions per week</li>
+                  <li className="c-pricing__info">Full Periodized Fitness Programming</li>
+                  <li className="c-pricing__info">Body Analysis and Biometric Monitoring</li>
+                  <li className="c-pricing__info">Nutritional Analysis and Guidance</li>
+                  <li className="c-pricing__info c-pricing__info--highlight c-pricing__info--price">4 weeks <strong>&pound;360</strong></li>
+                  <li className="c-pricing__info c-pricing__info--highlight c-pricing__info--price">8 weeks <strong>&pound;685</strong></li>
+                  <li className="c-pricing__info c-pricing__info--highlight c-pricing__info--price">12 weeks <strong>&pound;985</strong></li>
+                </ul>
+              </div>
+              <div className="o-grid__item c-pricing">
+                <h3 className="c-pricing__header">Silver package</h3>
+                <ul className="c-pricing__list">
+                  <li className="c-pricing__info c-pricing__info--highlight">3 sessions per week</li>
+                  <li className="c-pricing__info">Full Periodized Fitness Programming</li>
+                  <li className="c-pricing__info">Body Analysis and Biometric Monitoring</li>
+                  <li className="c-pricing__info">Nutritional Analysis and Guidance</li>
+                  <li className="c-pricing__info c-pricing__info--highlight c-pricing__info--price">4 weeks <strong>&pound;540</strong></li>
+                  <li className="c-pricing__info c-pricing__info--highlight c-pricing__info--price">8 weeks <strong>&pound;1030</strong></li>
+                  <li className="c-pricing__info c-pricing__info--highlight c-pricing__info--price">12 weeks <strong>&pound;1475</strong></li>
+                </ul>
+              </div>
+              <div className="o-grid__item c-pricing">
+                <h3 className="c-pricing__header">Gold package</h3>
+                <ul className="c-pricing__list">
+                  <li className="c-pricing__info c-pricing__info--highlight">4 sessions per week</li>
+                  <li className="c-pricing__info">Full Periodized Fitness Programming</li>
+                  <li className="c-pricing__info">Body Analysis and Biometric Monitoring</li>
+                  <li className="c-pricing__info">Nutritional Analysis and Guidance</li>
+                  <li className="c-pricing__info c-pricing__info--highlight c-pricing__info--price">4 weeks <strong>&pound;720</strong></li>
+                  <li className="c-pricing__info c-pricing__info--highlight c-pricing__info--price">8 weeks <strong>&pound;1375</strong></li>
+                  <li className="c-pricing__info c-pricing__info--highlight c-pricing__info--price">12 weeks <strong>&pound;1970</strong></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="c-section o-grid o-grid--two-column u-bg--grey-darkest">
+          <div className="c-section__content">
+            <h2 className="c-section__heading">Get in touch</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. </p>
           </div>
           <div className="c-section__content">

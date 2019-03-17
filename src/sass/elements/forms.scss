@@ -8,7 +8,7 @@ textarea {
   color: get-color(form-field);
   font-size: get-size(font-base);
   font-family: get-font(form-field);
-  padding: get-size(gutter)/2 get-size(gutter)*0.75;
+  padding: get-size(gutter-compact)/2 get-size(gutter-compact)*0.75;
   transition: border-color 0.25s;
 
   &:focus {
@@ -29,8 +29,8 @@ textarea {
 label {
   color: get-color(form-field-label);
   display: block;
-  margin: get-size(gutter) 0 get-size(gutter)/2;
-  padding: 0 get-size(gutter)*0.75;
+  margin: get-size(gutter-compact) 0 get-size(gutter-compact)/2;
+  padding: 0 get-size(gutter-compact)*0.75;
   transition: color 0.25s;
 
   .has-error & {
@@ -40,6 +40,6 @@ label {
 
 textarea {
   display: block;
-  height: (get-size(font-base)*1.4) * 5 + get-size(gutter);
+  height: (get-size(font-base)*1.4) * 5 + get-size(gutter-compact);
   line-height: 1.4;
 }

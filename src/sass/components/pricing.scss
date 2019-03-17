@@ -1,0 +1,59 @@
+@import "includes";
+
+.c-pricing {
+  text-align: center;
+
+  @include respond-max(two-column) {
+    margin-top: get-size(gutter);
+  }
+}
+
+  .c-pricing__header {
+    background-color: get-color(pricing-header-bg);
+    box-sizing: border-box;
+    margin: 0;
+    padding: get-size(gutter-compact) get-size(gutter-compact) get-size(gutter-compact)*0.75  get-size(gutter-compact);
+  }
+
+  .c-pricing__info {
+    background-color: get-color(pricing-info-bg);
+    box-sizing: border-box;
+    flex-basis: 100%;
+    margin-top: 1px;
+    padding: get-size(gutter-compact) get-size(gutter-compact) get-size(gutter-compact)*0.75  get-size(gutter-compact);
+  }
+
+  .c-pricing__info--highlight {
+    background-color: get-color(pricing-info-highlight-bg);
+  }
+
+  .c-pricing__info--price {
+    flex-basis: 33.333333%;
+
+    & + & {
+      border-left: 1px solid get-color(pricing-info-border);
+    }
+
+
+    @include respond-min(two-column) {
+      strong {
+        display: block;
+      }
+    }
+
+    @include respond-min-max(two-column, pricing-three-column) {
+      flex-basis: 100%;
+  
+      & + & {
+        border-left: none;
+      }
+    }
+  }
+
+  .c-pricing__list {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }

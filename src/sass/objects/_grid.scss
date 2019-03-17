@@ -1,0 +1,29 @@
+@import "includes";
+
+.o-grid {
+  grid-column-gap: get-size(gutter);
+  grid-row-gap: get-size(gutter);
+}
+
+.o-grid--three-column {
+  @include respond-min(two-column) {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+.o-grid--two-column {
+  @include respond-min(two-column) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+  .o-grid--two-row {
+    grid-template-rows: auto 1fr;
+  }
+
+  .o-grid__item--full {
+    grid-column-start: 1;
+    grid-column-end: 3;
+  }

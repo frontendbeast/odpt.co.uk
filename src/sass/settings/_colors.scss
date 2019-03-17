@@ -4,8 +4,10 @@ $c-palette: (
   primary: (
     black:         #000,
     grey-darkest:  #111,
+    grey-darker:   #222,
     grey-lighter:  #999,
     grey-lightest: #eee,
+    white:         #fff,
     red:           #f00,
   ),
   social: (
@@ -19,19 +21,24 @@ $c-tints: (
 );
 
 $c-uses: (
-  body-bg:                 get-color-direct(primary, black),
-  body-copy:               get-color-direct(primary, grey-lightest),
+  body-bg:                   get-color-direct(primary, black),
+  body-copy:                 get-color-direct(primary, grey-lightest),
 
-  button-border:           rgba(get-color-direct(primary, grey-lightest), 0.25),
+  button-border:             rgba(get-color-direct(primary, grey-lightest), 0.25),
 
-  form-field:              get-color-direct(primary, grey-lightest),
-  form-field-bg:           get-color-direct(primary, grey-darkest),
-  form-field-border:       rgba(get-color-direct(primary, grey-lightest), 0.25),
-  form-field-border-focus: get-color-direct(primary, grey-lightest),
-  form-field-error:        rgba(get-color-direct(primary, red), 0.80),
-  form-field-label:        get-color-direct(primary, grey-lighter),
+  form-field:                get-color-direct(primary, grey-lightest),
+  form-field-bg:             get-color-direct(primary, grey-darkest),
+  form-field-border:         rgba(get-color-direct(primary, grey-lightest), 0.25),
+  form-field-border-focus:   get-color-direct(primary, grey-lightest),
+  form-field-error:          rgba(get-color-direct(primary, red), 0.80),
+  form-field-label:          get-color-direct(primary, grey-lighter),
 
-  header-bg:               rgba(get-color-direct(primary, black), 0.85),
+  header-bg:                 rgba(get-color-direct(primary, black), 0.85),
 
-  nav-copy:                get-color-direct(primary, grey-lightest),
+  nav-copy:                  get-color-direct(primary, grey-lightest),
+
+  pricing-header-bg:         get-color-direct(primary, grey-darkest),
+  pricing-info-bg:           rgba(get-color-direct(primary, white), 0.05),
+  pricing-info-highlight-bg: rgba(get-color-direct(primary, white), 0.1),
+  pricing-info-border:       get-color-direct(primary, grey-darker),
 );
