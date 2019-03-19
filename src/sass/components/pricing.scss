@@ -27,18 +27,11 @@
     background-color: get-color(pricing-info-highlight-bg);
   }
 
-  .c-pricing__info--price {
+  .c-pricing__info--plan {
     flex-basis: 33.333333%;
 
     & + & {
       border-left: 1px solid get-color(pricing-info-border);
-    }
-
-
-    @include respond-min(two-column) {
-      strong {
-        display: block;
-      }
     }
 
     @include respond-min-max(two-column, pricing-three-column) {
@@ -47,6 +40,12 @@
       & + & {
         border-left: none;
       }
+    }
+  }
+
+  .c-pricing__price {
+    @include respond-min(two-column) {
+      display: block;
     }
   }
 

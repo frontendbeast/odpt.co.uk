@@ -41,6 +41,10 @@ class IndexPage extends React.Component {
     },
     errors: [],
     success: false,
+    more: {
+      intro: false,
+      training: false
+    }
   }
 
   handleFormSubmit = event => {
@@ -158,6 +162,13 @@ class IndexPage extends React.Component {
     return !this.isEmpty(name) && this.isBlurred(name) && !this.isValid(name, type);
   }
 
+  toggleMore(item) {
+    // const more = this.state.more;
+    // more[item] = !more[item];
+
+    // this.setState({ more });
+  }
+
   renderErrors() {
     const prefix = (this.state.errors.length===1) ? 'was an error' : 'were errors';
     return `<p>There ${prefix} submitting the form: </p><ul>${this.state.errors.map(error => `<li>${error.message}</li>`)}</ul>`; 
@@ -170,22 +181,25 @@ class IndexPage extends React.Component {
         <div className="c-section c-section--align-bottom c-section--bg o-grid o-grid--two-column">
           <div className="c-section__content">
             <LogoText />
-            <p>Improve your Health and Wellbeing</p>
-            <p>Professional fitness, nutrition and lifestyle training. Based in Manchester, UK. Online support available worldwide.</p>
+            <p>Professional and effective support for health, training, nutrition and lifestyle. Available for one-to-one direct training, and also remote online support. Offering a comprehensive and personal service, designed to empower you to reach your fitness goals while improving confidence and life skills; and incorporating proven scientific methods to maximise results, and carefully monitor progress.</p>
+            <p className={`u-hidden-mobile${this.state.more.intro ? '' : ' is-hidden'}`}>Oli Dickinson Personal Training offers a modern and tested approach to training, from an exclusive and private training studio in Manchester. Extensive training and support packages are also available for online clients worldwide. All training packages include full fitness programming, regular and scientific progress monitoring, nutritional guidance, and continuing support.</p>
+            <button className="u-hidden-desktop c-button" onClick={() => this.toggleMore('intro')}>{this.state.more.intro ? 'Less' : 'More'} info</button>
           </div>
           <div className="c-section__fixed" style={{ backgroundImage: `url(${headshot})` }}></div>
         </div>
         <div className="c-section c-section--align-bottom c-section--bg o-grid o-grid--two-column" style={{ backgroundImage: `url(${coaching})` }}>
           <div className="c-section__content">
-            <h2 className="c-section__heading">Train to Meet your Goals</h2>
-            <p>Personalised and individual training and diet programs to meet your goals. Full and regular biometric analysis. Constant support to promote positive lifestyle changes.</p>
+            <h2>Train to Meet your Goals</h2>
+            <p>Working from a private studio in Manchester, you will have the freedom to train at a time to suit your lifestyle, and in an environment designed to maximise your potential. With a broad range of resistance machines, free weights, cardiovascular and plyometric equipment, the training studio is fully equipped to meet whatever fitness goals you wish to pursue. With the help of experienced and qualified fitness programming and monitoring, you will be guided to appreciate your capacity and potential to live a healthier and happier life.</p>
+            <p className={`u-hidden-mobile${this.state.more.training ? '' : ' is-hidden'}`}>Online clients will also benefit from regular and direct contact via Skype or Facetime to address any issues in their fitness journey, to closely monitor progress, and to encourage a lifestyle centred on personal health and wellbeing.</p>
+            <button className="u-hidden-desktop c-button" onClick={() => this.toggleMore('training')}>{this.state.more.training ? 'Less' : 'More'} info</button>
             {/* <Link className="c-button" to="/personal-training">Personal training</Link> */}
           </div>
         </div>
-        <div className="c-section o-grid o-grid--two-column o-grid--two-row u-bg--grey-darker">
+        <div className="c-section o-grid o-grid--two-column o-grid--three-row u-bg--grey-darker">
           <div className="c-section__content">
-            <h2 className="c-section__heading">Personal Training</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. </p>
+            <h2>Personal Training</h2>
+            <p>Get in touch today to arrange a consultation at your convenience. I look forward to hearing from you and working with you to pursue your health, fitness and wellbeing goals.</p>
           </div>
           <div className="c-section__content o-grid__item--full">
             <div className="o-grid o-grid--three-column">
@@ -196,9 +210,9 @@ class IndexPage extends React.Component {
                   <li className="c-pricing__info">Full Periodized Fitness Programming</li>
                   <li className="c-pricing__info">Body Analysis and Biometric Monitoring</li>
                   <li className="c-pricing__info">Nutritional Analysis and Guidance</li>
-                  <li className="c-pricing__info c-pricing__info--highlight c-pricing__info--price">4 weeks <strong>&pound;360</strong></li>
-                  <li className="c-pricing__info c-pricing__info--highlight c-pricing__info--price">8 weeks <strong>&pound;685</strong></li>
-                  <li className="c-pricing__info c-pricing__info--highlight c-pricing__info--price">12 weeks <strong>&pound;985</strong></li>
+                  <li className="c-pricing__info c-pricing__info--highlight c-pricing__info--plan">4 weeks <strong className="c-pricing__price">&pound;360</strong></li>
+                  <li className="c-pricing__info c-pricing__info--highlight c-pricing__info--plan">8 weeks <strong className="c-pricing__price">&pound;685</strong></li>
+                  <li className="c-pricing__info c-pricing__info--highlight c-pricing__info--plan">12 weeks <strong className="c-pricing__price">&pound;985</strong></li>
                 </ul>
               </div>
               <div className="o-grid__item c-pricing">
@@ -208,9 +222,9 @@ class IndexPage extends React.Component {
                   <li className="c-pricing__info">Full Periodized Fitness Programming</li>
                   <li className="c-pricing__info">Body Analysis and Biometric Monitoring</li>
                   <li className="c-pricing__info">Nutritional Analysis and Guidance</li>
-                  <li className="c-pricing__info c-pricing__info--highlight c-pricing__info--price">4 weeks <strong>&pound;540</strong></li>
-                  <li className="c-pricing__info c-pricing__info--highlight c-pricing__info--price">8 weeks <strong>&pound;1030</strong></li>
-                  <li className="c-pricing__info c-pricing__info--highlight c-pricing__info--price">12 weeks <strong>&pound;1475</strong></li>
+                  <li className="c-pricing__info c-pricing__info--highlight c-pricing__info--plan">4 weeks <strong className="c-pricing__price">&pound;540</strong></li>
+                  <li className="c-pricing__info c-pricing__info--highlight c-pricing__info--plan">8 weeks <strong className="c-pricing__price">&pound;1030</strong></li>
+                  <li className="c-pricing__info c-pricing__info--highlight c-pricing__info--plan">12 weeks <strong className="c-pricing__price">&pound;1475</strong></li>
                 </ul>
               </div>
               <div className="o-grid__item c-pricing">
@@ -220,9 +234,20 @@ class IndexPage extends React.Component {
                   <li className="c-pricing__info">Full Periodized Fitness Programming</li>
                   <li className="c-pricing__info">Body Analysis and Biometric Monitoring</li>
                   <li className="c-pricing__info">Nutritional Analysis and Guidance</li>
-                  <li className="c-pricing__info c-pricing__info--highlight c-pricing__info--price">4 weeks <strong>&pound;720</strong></li>
-                  <li className="c-pricing__info c-pricing__info--highlight c-pricing__info--price">8 weeks <strong>&pound;1375</strong></li>
-                  <li className="c-pricing__info c-pricing__info--highlight c-pricing__info--price">12 weeks <strong>&pound;1970</strong></li>
+                  <li className="c-pricing__info c-pricing__info--highlight c-pricing__info--plan">4 weeks <strong className="c-pricing__price">&pound;720</strong></li>
+                  <li className="c-pricing__info c-pricing__info--highlight c-pricing__info--plan">8 weeks <strong className="c-pricing__price">&pound;1375</strong></li>
+                  <li className="c-pricing__info c-pricing__info--highlight c-pricing__info--plan">12 weeks <strong className="c-pricing__price">&pound;1970</strong></li>
+                </ul>
+              </div>
+              <div className="o-grid__item c-pricing">
+                <h3 className="c-pricing__header">Online training</h3>
+                <ul className="c-pricing__list">
+                  <li className="c-pricing__info c-pricing__info--highlight">Weekly 30 minute consultation via Skype / Facetime</li>
+                  <li className="c-pricing__info">Full Periodized Fitness Programming</li>
+                  <li className="c-pricing__info">Body Analysis and Biometric Monitoring</li>
+                  <li className="c-pricing__info">Nutritional Analysis and Guidance</li>
+                  <li className="c-pricing__info">Email support</li>
+                  <li className="c-pricing__info c-pricing__info--highlight">12 weeks <strong className="c-pricing__price">&pound;500</strong></li>
                 </ul>
               </div>
             </div>
@@ -231,8 +256,8 @@ class IndexPage extends React.Component {
 
         <div className="c-section o-grid o-grid--two-column u-bg--grey-darkest">
           <div className="c-section__content">
-            <h2 className="c-section__heading">Get in touch</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. </p>
+            <h2>Get in touch</h2>
+            <p>Get in touch today to arrange a consultation at your convenience. I look forward to hearing from you and working with you to pursue your health, fitness and wellbeing goals. </p>
           </div>
           <div className="c-section__content">
             <form className="c-form" method="post" onSubmit={this.handleFormSubmit}>

@@ -1,0 +1,18 @@
+.u-hidden-mobile {
+  max-height: 250px;
+  overflow: hidden;
+  transition: max-height 0.5s, margin 0.5s;
+
+  &.is-hidden {
+    @include respond-max(two-column) {
+      margin: 0;
+      max-height: 0;
+    }
+  }
+}
+
+.u-hidden-desktop {
+  @include respond-min(two-column) {
+    display: none;
+  }
+}

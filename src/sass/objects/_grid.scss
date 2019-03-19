@@ -19,8 +19,8 @@
   }
 }
 
-  .o-grid--two-row {
-    grid-template-rows: auto 1fr;
+  .o-grid--three-row {
+    grid-template-rows: auto auto 1fr;
   }
 
   .o-grid__item--full {

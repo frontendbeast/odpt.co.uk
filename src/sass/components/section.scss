@@ -23,17 +23,19 @@
 
 .c-section--align-bottom {
   align-items: flex-end;
+  justify-content: flex-end;
 }
 
 .c-section--bg {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  overflow: hidden;
   position: relative;
   
   &::after {
     background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,1) 100%);
-    bottom: 0;
+    bottom: -1px;
     content: ' ';
     display: block;
     height: 100%;
