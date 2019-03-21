@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "odpt",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "Oli Dickinson Personal Training website",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Darren Hall <darren@darrenhall.co>",
   "dependencies": {
     "gatsby": "^2.0.119",
     "gatsby-image": "^2.0.29",
