@@ -47,7 +47,7 @@ class IndexPage extends React.Component {
     }
   }
 
-  handleFormSubmit = event => {
+  handleFormSubmit = async event => {
     event.preventDefault();
 
     const fields = this.state.fields;
@@ -58,8 +58,10 @@ class IndexPage extends React.Component {
     });
 
     this.setState({ fields });
+
+    const errors = await document.getElementsByClassName('has-error');
     
-    if(document.getElementsByClassName('has-error').length === 0) {
+    if(errors.length === 0) {
       const data = {};
 
       Object.entries(this.state.fields).forEach(([key, props]) => data[key] = props.value);
@@ -163,10 +165,10 @@ class IndexPage extends React.Component {
   }
 
   toggleMore(item) {
-    // const more = this.state.more;
-    // more[item] = !more[item];
+    const more = this.state.more;
+    more[item] = !more[item];
 
-    // this.setState({ more });
+    this.setState({ more });
   }
 
   renderErrors() {
