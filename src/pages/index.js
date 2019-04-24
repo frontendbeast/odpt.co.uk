@@ -68,7 +68,7 @@ class IndexPage extends React.Component {
 
       this.setState({ success: false });
 
-      fetch(window.location.href, {
+      fetch('/', {
         body: data.join('&'),
         headers: ({
           "Content-Type": "application/x-www-form-urlencoded",
@@ -263,7 +263,7 @@ class IndexPage extends React.Component {
             <p>Get in touch today to arrange a consultation at your convenience. I look forward to hearing from you and working with you to pursue your health, fitness and wellbeing goals. </p>
           </div>
           <div className="c-section__content">
-          <form method="post" name="contact form" data-netlify="true" hidden>
+          <form method="post" action="/" name="contact form" data-netlify="true" netlify-honeypot="website" hidden>
             <input name="name" />
             <input name="email" />
             <input name="phone" />
