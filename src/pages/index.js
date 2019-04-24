@@ -61,7 +61,7 @@ class IndexPage extends React.Component {
 
     const errors = await document.getElementsByClassName('has-error');
     
-    if(errors.length > 0) {
+    if(errors.length === 0) {
       const data = ["form-name=contact"];
       
       Object.entries(this.state.fields).forEach(([key, props]) => data.push(`${encodeURIComponent(key)}=${encodeURIComponent(props.value)}`));
