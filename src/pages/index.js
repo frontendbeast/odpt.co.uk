@@ -61,16 +61,21 @@ class IndexPage extends React.Component {
 
     const errors = await document.getElementsByClassName('has-error');
     
-    if(errors.length === 0) {
-      const data = {};
+    if(errors.length > 0) {
+      const data = {
+        "form-name": "contact"
+      };
 
       Object.entries(this.state.fields).forEach(([key, props]) => data[key] = props.value);
 
       this.setState({ success: false });
 
-      fetch('/send.php', {
-        body: JSON.stringify(data),
-        method: 'POST'
+      fetch('/', {
+        body: JSON.stringify(data), 
+        headers: ({
+          "Content-Type": "application/x-www-form-urlencoded",
+        }),
+        method: 'POST',
       })
         .then(async response => {
 
@@ -262,7 +267,7 @@ class IndexPage extends React.Component {
             <p>Get in touch today to arrange a consultation at your convenience. I look forward to hearing from you and working with you to pursue your health, fitness and wellbeing goals. </p>
           </div>
           <div className="c-section__content">
-            <form className="c-form" method="post" onSubmit={this.handleFormSubmit}>
+            <form className="c-form" method="post" onSubmit={this.handleFormSubmit} data-netlify="true" netlify-honeypot="website">
               <div className="c-form__field-group">
                 <div className={`c-form__field--full${this.hasError('name') ? ' has-error' : ''}`}>
                   <label htmlFor="name">Name { this.hasError('name') && <span>is required</span> }</label>
