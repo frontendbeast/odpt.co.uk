@@ -64,7 +64,7 @@ class IndexPage extends React.Component {
     if(errors.length > 0) {
       const data = ["form-name=contact"];
       
-      Object.entries(this.state.fields).forEach(([key, props]) => data.push(`${key}=${props.value}`));
+      Object.entries(this.state.fields).forEach(([key, props]) => data.push(`${encodeURIComponent(key)}=${encodeURIComponent(props.value)}`));
 
       this.setState({ success: false });
 
@@ -260,7 +260,13 @@ class IndexPage extends React.Component {
             <p>Get in touch today to arrange a consultation at your convenience. I look forward to hearing from you and working with you to pursue your health, fitness and wellbeing goals. </p>
           </div>
           <div className="c-section__content">
-            <form className="c-form" method="post" onSubmit={this.handleFormSubmit} data-netlify="true" netlify-honeypot="website">
+          <form method="post" name="contact form" data-netlify="true" hidden>
+            <input name="name" />
+            <input name="email" />
+            <input name="phone" />
+            <textarea name="message"></textarea>
+          </form>
+            <form className="c-form" method="post" onSubmit={this.handleFormSubmit}>
               <div className="c-form__field-group">
                 <div className={`c-form__field--full${this.hasError('name') ? ' has-error' : ''}`}>
                   <label htmlFor="name">Name { this.hasError('name') && <span>is required</span> }</label>
