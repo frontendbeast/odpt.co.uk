@@ -68,7 +68,7 @@ class IndexPage extends React.Component {
 
       this.setState({ success: false });
 
-      fetch('/contact', {
+      fetch('/contact/', {
         body: data.join('&'),
         headers: ({
           "Content-Type": "application/x-www-form-urlencoded",
