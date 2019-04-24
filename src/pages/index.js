@@ -70,6 +70,9 @@ class IndexPage extends React.Component {
 
       fetch('/', {
         body: data.join('&'),
+        headers: ({
+          "Content-Type": "application/x-www-form-urlencoded",
+        }),
         method: 'POST',
       })
         .then(async response => {
