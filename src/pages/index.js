@@ -62,24 +62,18 @@ class IndexPage extends React.Component {
     const errors = await document.getElementsByClassName('has-error');
     
     if(errors.length > 0) {
-      const data = {
-        "form-name": "contact"
-      };
-
-      Object.entries(this.state.fields).forEach(([key, props]) => data[key] = props.value);
+      const data = ["form-name=contact"];
+      
+      Object.entries(this.state.fields).forEach(([key, props]) => data.push(`${key}=${props.value}`));
 
       this.setState({ success: false });
 
       fetch('/', {
-        body: JSON.stringify(data), 
-        headers: ({
-          "Content-Type": "application/x-www-form-urlencoded",
-        }),
+        body: data.join('&'),
         method: 'POST',
       })
         .then(async response => {
-
-          if(response.status === 202) {
+          if(response.status === 200) {
             const fields = this.state.fields;
 
             Object.entries(fields).forEach(([field, properties]) => {
@@ -90,8 +84,7 @@ class IndexPage extends React.Component {
 
             this.setState({ fields: fields, errors: [], success: true });
           } else {
-            const result = await response.json();
-            this.setState({ errors: result.errors });
+            this.setState({ errors: [{ message: "Submission failed" }] });
           }
         })
         .catch(response => console.error(response))
