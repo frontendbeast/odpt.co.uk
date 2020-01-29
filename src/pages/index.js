@@ -1,5 +1,5 @@
 import React from "react"
-// import { Link } from "gatsby"
+import { Link } from "gatsby"
 
 import Layout from "../components/layout"
 import LogoText from "../components/logo/logo-text"
@@ -47,52 +47,53 @@ class IndexPage extends React.Component {
     }
   }
 
-  // handleFormSubmit = async event => {
-  //   event.preventDefault();
+  handleFormSubmit = async event => {
+    event.preventDefault();
 
-  //   const fields = this.state.fields;
+    const fields = this.state.fields;
 
-  //   Object.entries(fields).forEach(([field, properties]) => {
-  //     fields[field].touched = true;
-  //     fields[field].blurred = true;
-  //   });
+    Object.entries(fields).forEach(([field, properties]) => {
+      fields[field].touched = true;
+      fields[field].blurred = true;
+    });
 
-  //   this.setState({ fields });
+    this.setState({ fields });
 
-  //   const errors = await document.getElementsByClassName('has-error');
+    const errors = await document.getElementsByClassName('has-error');
     
-  //   if(errors.length === 0) {
-  //     const data = {};
+    if(errors.length === 0) {
+      const data = ["form-name=contact"];
+      
+      Object.entries(this.state.fields).forEach(([key, props]) => data.push(`${encodeURIComponent(key)}=${encodeURIComponent(props.value)}`));
 
-  //     Object.entries(this.state.fields).forEach(([key, props]) => data[key] = props.value);
+      this.setState({ success: false });
 
-  //     this.setState({ success: false });
+      fetch('/contact/', {
+        body: data.join('&'),
+        headers: ({
+          "Content-Type": "application/x-www-form-urlencoded",
+        }),
+        method: 'POST',
+      })
+        .then(async response => {
+          if(response.status === 200) {
+            const fields = this.state.fields;
 
-  //     fetch('/send.php', {
-  //       body: JSON.stringify(data),
-  //       method: 'POST'
-  //     })
-  //       .then(async response => {
+            Object.entries(fields).forEach(([field, properties]) => {
+              fields[field].value = "";
+              fields[field].touched = false;
+              fields[field].blurred = false;
+            });
 
-  //         if(response.status === 202) {
-  //           const fields = this.state.fields;
+            this.setState({ fields: fields, errors: [], success: true });
+          } else {
+            this.setState({ errors: [{ message: "Submission failed" }] });
+          }
+        })
+        .catch(response => console.error(response))
+    }
 
-  //           Object.entries(fields).forEach(([field, properties]) => {
-  //             fields[field].value = "";
-  //             fields[field].touched = false;
-  //             fields[field].blurred = false;
-  //           });
-
-  //           this.setState({ fields: fields, errors: [], success: true });
-  //         } else {
-  //           const result = await response.json();
-  //           this.setState({ errors: result.errors });
-  //         }
-  //       })
-  //       .catch(response => console.error(response))
-  //   }
-
-  // }
+  }
 
   handleInputChange = event => {
     const target = event.target;
@@ -262,35 +263,13 @@ class IndexPage extends React.Component {
             <p>Get in touch today to arrange a consultation at your convenience. I look forward to hearing from you and working with you to pursue your health, fitness and wellbeing goals. </p>
           </div>
           <div className="c-section__content">
-            <form name="Contact form" className="c-form" method="post" data-netlify="true">
-              <div className="c-form__field-group">
-                <div className="c-form__field--full">
-                  <label htmlFor="name">Name </label>
-                  <input name="name" type="text" />
-                </div>
-              </div>
-              <div className="c-form__field-group">
-                <div className="c-form__field--full">
-                  <label htmlFor="email">Email </label>
-                  <input name="email" type="email" />
-                </div>
-                <div className="c-form__field--full">
-                  <label htmlFor="phone">Phone </label>
-                  <input name="phone" type="tel" />
-                </div>
-              </div>
-              <div className="c-form__field--full">
-                <label htmlFor="message">Message </label>
-                <textarea name="message"></textarea>
-              </div>
-              {/* <div className="c-form__field--trap">
-                <input name="website" tabIndex="-1" autoComplete="off" aria-hidden="true" />
-              </div> */}
-              <div className="c-form__button-group">
-                <button type="submit" className="c-button">Send</button>
-              </div>
-            </form>
-            {/* <form className="c-form" method="post" onSubmit={this.handleFormSubmit}>
+          <form method="post" action="/contact/" name="contact form" data-netlify="true" netlify-honeypot="website" hidden>
+            <input name="name" />
+            <input name="email" />
+            <input name="phone" />
+            <textarea name="message"></textarea>
+          </form>
+            <form className="c-form" method="post" onSubmit={this.handleFormSubmit}>
               <div className="c-form__field-group">
                 <div className={`c-form__field--full${this.hasError('name') ? ' has-error' : ''}`}>
                   <label htmlFor="name">Name { this.hasError('name') && <span>is required</span> }</label>
@@ -319,7 +298,7 @@ class IndexPage extends React.Component {
                 { this.state.success && <p>Thanks for getting in touch, Oli will get back to you soon.</p> }
                 <button type="submit" className="c-button">Send</button>
               </div>
-            </form> */}
+            </form>
           </div>
         </div>
       </Layout>
