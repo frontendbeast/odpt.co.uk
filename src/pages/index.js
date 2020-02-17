@@ -263,7 +263,7 @@ class IndexPage extends React.Component {
             <p>Get in touch today to arrange a consultation at your convenience. I look forward to hearing from you and working with you to pursue your health, fitness and wellbeing goals. </p>
           </div>
           <div className="c-section__content">
-            <form className="c-form" method="post" onSubmit={this.handleFormSubmit} name="contact" data-netlify="true" netlify-honeypot="website">
+            <form className="c-form" method="post" onSubmit={this.handleFormSubmit} name="Contact form" data-netlify="true" netlify-honeypot="website">
               <div className="c-form__field-group">
                 <div className={`c-form__field--full${this.hasError('name') ? ' has-error' : ''}`}>
                   <label htmlFor="name">Name { this.hasError('name') && <span>is required</span> }</label>
@@ -286,7 +286,7 @@ class IndexPage extends React.Component {
               </div>
               <div className="c-form__field--trap">
                 <input name="website" onChange={this.handleInputChange} onBlur={this.handleInputChange} value={this.state.fields.website.value} tabIndex="-1" autoComplete="off" aria-hidden="true" />
-                <input type="hidden" name="form-name" value="contact" />
+                <input type="hidden" name="form-name" value="Contact form" />
               </div>
               <div className="c-form__button-group">
                 { this.state.errors.length > 0 && <div className="c-form__error"><p>There { this.state.errors.length > 1 ? "were errors" : "was an error" } submitting the form:</p><ul>{ this.state.errors.map((error, i) => (<li key={`error-${i}`}>{ error.message }</li>)) }</ul></div> }
