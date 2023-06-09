@@ -5,7 +5,7 @@
   "version": "0.1.0",
   "author": "Darren Hall <darren@darrenhall.co>",
   "dependencies": {
-    "gatsby": "^2.0.119",
+    "gatsby": "^4.25.7",
     "gatsby-image": "^2.0.29",
     "gatsby-plugin-google-analytics": "^2.0.18",
     "gatsby-plugin-manifest": "^2.0.17",
